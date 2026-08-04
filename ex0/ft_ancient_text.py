@@ -3,14 +3,15 @@ import sys
 import typing
 
 
-def ancient_data(_) -> None:
+def ancient_data(data:str) -> None:
     try:
-        f = open(sys.argv[1], "r")
-    except FileNotFoundError or PermissionError as e:
-        print(e)
+        f = open(data, "r")
+    except (FileNotFoundError, PermissionError) as e:
+        print(f"Error opening file '{data}':", e)
 
 
 if __name__ == "__main__":
+    print("=== Cyber Archives Recovery ===")
     if len(sys.argv) == 2:
         ancient_data(sys.argv[1])
     else:
