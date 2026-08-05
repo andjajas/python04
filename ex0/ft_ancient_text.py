@@ -3,12 +3,12 @@ import sys
 import typing
 
 
-def ancient_data(data:str) -> None:
+def ancient_data(data:str) -> typing.IO[str]:
     try:
         f = open(data, "r")
     except (FileNotFoundError, PermissionError) as e:
         print(f"Error opening file '{data}':", e)
-
+    return f
 
 if __name__ == "__main__":
     print("=== Cyber Archives Recovery ===")
